@@ -51,7 +51,7 @@ namespace ToDoServices.Controllers
             // Create To Do List in repository
             var isCreated = CreateToDoList(toDoList, out string error);
 
-            // If errors occured during call to repository, return them to caller and stop execution pf the call
+            // If errors occured during call to repository, return them to caller and stop execution of the call
             if (!string.IsNullOrEmpty(error))
             {
                 return BadRequest(error);
@@ -98,7 +98,7 @@ namespace ToDoServices.Controllers
             // Check if list exists in repository
             var existingList = GetToDoList((int)id, out string error);
 
-            // If errors occured during call to repository, return them to caller and stop execution pf the call
+            // If errors occured during call to repository, return them to caller and stop execution of the call
             if (!string.IsNullOrEmpty(error))
             {
                 return BadRequest(error);
@@ -139,7 +139,7 @@ namespace ToDoServices.Controllers
             // Check if list exists in repository
             var existingList = GetToDoList((int)id, out string error);
 
-            // If errors occured during call to repository, return them to caller and stop execution pf the call
+            // If errors occured during call to repository, return them to caller and stop execution of the call
             if (!string.IsNullOrEmpty(error))
             {
                 return BadRequest(error);
@@ -166,7 +166,7 @@ namespace ToDoServices.Controllers
             // Update existing To Do List in repository
             var isUpdated = UpdateToDoList(id, toDoList, out error);
 
-            // If errors occured during call to repository, return them to caller and stop execution pf the call
+            // If errors occured during call to repository, return them to caller and stop execution of the call
             if (!string.IsNullOrEmpty(error))
             {
                 return BadRequest(error);
@@ -176,7 +176,7 @@ namespace ToDoServices.Controllers
             {
                 // Pull updated list from repository
                 var updatedList = GetToDoList((int)id, out error);
-                // If errors occured during call to repository, return them to caller and stop execution pf the call
+                // If errors occured during call to repository, return them to caller and stop execution of the call
                 if (!string.IsNullOrEmpty(error))
                 {
                     return BadRequest(error);
