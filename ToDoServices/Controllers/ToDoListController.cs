@@ -28,7 +28,7 @@ namespace ToDoServices.Controllers
        
         // CREATE TO DO LIST
         [HttpPost]
-        [Route("api/todolists/add")]
+        [Route("api/todolists")]
         public IHttpActionResult ToDoListAdd(string userName, ToDoList toDoList)
         {
             // Any user can create To Do List. No authorization call nedded

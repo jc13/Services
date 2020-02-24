@@ -116,16 +116,16 @@ namespace ToDoServices.Data.Repositories
 
         public bool ToDoListExists(string userName, string title, int id, out string match)
         {
-            match = string.Empty;
-            var toDoLists = ToDoListGetAll(userName);
+            match = string.Empty;        
 
-            var existing = toDoLists.SingleOrDefault((x => x.Id == id));
+            var existing = ToDoLists.SingleOrDefault((x => x.Id == id));
             //If list with specified Id exists, we cannot create another list with same Id
             if (existing != null)
             {
                 match += $"Id = {id}";
                 return true;
             }
+            var toDoLists = ToDoListGetAll(userName);
 
             if (string.IsNullOrWhiteSpace(title))
                 throw new ArgumentException("Title must not be empty", "title");
@@ -209,7 +209,7 @@ namespace ToDoServices.Data.Repositories
                 
             if (matchingLists == null || matchingLists.Count() != 1) return null;
 
-            return matchingLists.Single().ToDoItems.Single();
+            return matchingLists.Single().ToDoItems.Single(item => item.ItemId == itemId);
         }
         #endregion
 
